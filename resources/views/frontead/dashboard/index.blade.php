@@ -1,8 +1,8 @@
 @extends('frontead.layouts.master')
 @section('content')
     <!--=============================
-            BREADCRUMB START
-        ==============================-->
+                                        BREADCRUMB START
+                                    ==============================-->
     <section class="fp__breadcrumb" style="background: url(images/counter_bg.jpg);">
         <div class="fp__breadcrumb_overlay">
             <div class="container">
@@ -17,13 +17,13 @@
         </div>
     </section>
     <!--=============================
-            BREADCRUMB END
-        ==============================-->
+                                        BREADCRUMB END
+                                    ==============================-->
 
 
     <!--=========================
-            DASHBOARD START
-        ==========================-->
+                                        DASHBOARD START
+                                    ==========================-->
     <section class="fp__dashboard mt_120 xs_mt_90 mb_100 xs_mb_70">
         <div class="container">
             <div class="fp__dashboard_area">
@@ -118,40 +118,27 @@
                                             <div class="personal_info_text">
                                                 <p><span>Name:</span> Hasib Ahmed</p>
                                                 <p><span>Email:</span> hasibahmed@gmail.com</p>
-                                                <p><span>Phone:</span> 023 434 54354</p>
-                                                <p><span>Address:</span> 7232 Broadway Suite 308, Jackson Heights,
-                                                    11372, NY, United States </p>
                                             </div>
 
-                                            <div class="fp_dash_personal_info_edit comment_input p-0">
-                                                <form>
+                                            <div class="p-0 fp_dash_personal_info_edit comment_input">
+                                                <form method="POST" action="{{ route('user.profile.update') }}">
+                                                    @csrf
+                                                    @method('PUT')
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <div class="fp__comment_imput_single">
                                                                 <label>name</label>
-                                                                <input type="text" placeholder="Name">
+                                                                <input type="text" placeholder="Name" name="name">
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-6 col-lg-6">
+                                                        <div class="col-xl-12 col-lg-6">
                                                             <div class="fp__comment_imput_single">
                                                                 <label>email</label>
-                                                                <input type="email" placeholder="Email">
+                                                                <input type="email" placeholder="Email" name="email">
                                                             </div>
-                                                        </div>
-                                                        <div class="col-xl-6 col-lg-6">
-                                                            <div class="fp__comment_imput_single">
-                                                                <label>phone</label>
-                                                                <input type="text" placeholder="Phone">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xl-12">
-                                                            <div class="fp__comment_imput_single">
-                                                                <label>address</label>
-                                                                <textarea rows="4" placeholder="Address"></textarea>
-                                                            </div>
-                                                            <button type="submit" class="common_btn">submit</button>
                                                         </div>
                                                     </div>
+                                                    <button type="submit">submit</button>
                                                 </form>
                                             </div>
                                         </div>
@@ -864,7 +851,7 @@
                                                             <a class="title" href="menu_details.html">Hyderabadi
                                                                 biryani</a>
                                                             <h5 class="price">$70.00</h5>
-                                                            <ul class="d-flex flex-wrap justify-content-center">
+                                                            <ul class="flex-wrap d-flex justify-content-center">
                                                                 <li><a href="#" data-bs-toggle="modal"
                                                                         data-bs-target="#cartModal"><i
                                                                             class="fas fa-shopping-basket"></i></a></li>
@@ -893,7 +880,7 @@
                                                             </p>
                                                             <a class="title" href="menu_details.html">chicken Masala</a>
                                                             <h5 class="price">$80.00 <del>90.00</del></h5>
-                                                            <ul class="d-flex flex-wrap justify-content-center">
+                                                            <ul class="flex-wrap d-flex justify-content-center">
                                                                 <li><a href="#" data-bs-toggle="modal"
                                                                         data-bs-target="#cartModal"><i
                                                                             class="fas fa-shopping-basket"></i></a></li>
@@ -923,7 +910,7 @@
                                                             <a class="title" href="menu_details.html">daria
                                                                 shevtsova</a>
                                                             <h5 class="price">$99.00</h5>
-                                                            <ul class="d-flex flex-wrap justify-content-center">
+                                                            <ul class="flex-wrap d-flex justify-content-center">
                                                                 <li><a href="#" data-bs-toggle="modal"
                                                                         data-bs-target="#cartModal"><i
                                                                             class="fas fa-shopping-basket"></i></a></li>
@@ -952,7 +939,7 @@
                                                             </p>
                                                             <a class="title" href="menu_details.html">chicken Masala</a>
                                                             <h5 class="price">$80.00 <del>90.00</del></h5>
-                                                            <ul class="d-flex flex-wrap justify-content-center">
+                                                            <ul class="flex-wrap d-flex justify-content-center">
                                                                 <li><a href="#" data-bs-toggle="modal"
                                                                         data-bs-target="#cartModal"><i
                                                                             class="fas fa-shopping-basket"></i></a></li>
@@ -981,7 +968,7 @@
                                                             </p>
                                                             <a class="title" href="menu_details.html">chicken Masala</a>
                                                             <h5 class="price">$80.00 <del>90.00</del></h5>
-                                                            <ul class="d-flex flex-wrap justify-content-center">
+                                                            <ul class="flex-wrap d-flex justify-content-center">
                                                                 <li><a href="#" data-bs-toggle="modal"
                                                                         data-bs-target="#cartModal"><i
                                                                             class="fas fa-shopping-basket"></i></a></li>
@@ -1011,7 +998,7 @@
                                                             <a class="title" href="menu_details.html">Hyderabadi
                                                                 biryani</a>
                                                             <h5 class="price">$70.00</h5>
-                                                            <ul class="d-flex flex-wrap justify-content-center">
+                                                            <ul class="flex-wrap d-flex justify-content-center">
                                                                 <li><a href="#" data-bs-toggle="modal"
                                                                         data-bs-target="#cartModal"><i
                                                                             class="fas fa-shopping-basket"></i></a></li>
@@ -1058,8 +1045,8 @@
                                     <div class="fp_dashboard_body dashboard_review">
                                         <h3>review</h3>
                                         <div class="fp__review_area">
-                                            <div class="fp__comment pt-0 mt_20">
-                                                <div class="fp__single_comment m-0 border-0">
+                                            <div class="pt-0 fp__comment mt_20">
+                                                <div class="m-0 border-0 fp__single_comment">
                                                     <img src="images/menu1.png" alt="review" class="img-fluid">
                                                     <div class="fp__single_comm_text">
                                                         <h3><a href="#">mamun ahmed shuvo</a> <span>29 oct 2022
@@ -1149,7 +1136,7 @@
                                     <div class="fp_dashboard_body fp__change_password">
                                         <div class="fp__review_input">
                                             <h3>change password</h3>
-                                            <div class="comment_input pt-0">
+                                            <div class="pt-0 comment_input">
                                                 <form>
                                                     <div class="row">
                                                         <div class="col-xl-6">
@@ -1262,7 +1249,7 @@
                                     <h3>$320.00</h3>
                                 </div>
                             </div>
-                            <ul class="details_button_area d-flex flex-wrap">
+                            <ul class="flex-wrap details_button_area d-flex">
                                 <li><a class="common_btn" href="#">add to cart</a></li>
                             </ul>
                         </div>
@@ -1273,6 +1260,6 @@
     </div>
     <!-- CART POPUT END -->
     <!--=========================
-            DASHBOARD END
-        ==========================-->
+                                        DASHBOARD END
+                                    ==========================-->
 @endsection

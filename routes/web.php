@@ -4,7 +4,7 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\Frontead\DashboardController;
 use App\Http\Controllers\frontead\FronteadController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Frontead\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +29,7 @@ Route::get('admin/login', [AdminAuthController::class, 'index'])->name('admin.lo
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::put('update', [ProfileController::class, 'updateProfile'])->name('user.profile.update');
 });
 
 
