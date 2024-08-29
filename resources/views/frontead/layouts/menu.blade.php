@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg main_menu">
     <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ asset('frontead/images/logo.png') }}" alt="FoodPark" class="img-fluid">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -8,7 +8,7 @@
             <i class="far fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav m-auto">
+            <ul class="m-auto navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                 </li>
@@ -47,7 +47,7 @@
                     <a class="nav-link" href="contact.html">contact</a>
                 </li>
             </ul>
-            <ul class="menu_icon d-flex flex-wrap">
+            <ul class="flex-wrap menu_icon d-flex">
                 <li>
                     <a href="#" class="menu_search"><i class="far fa-search"></i></a>
                     <div class="fp__search_form">
@@ -62,7 +62,7 @@
                     <a class="cart_icon"><i class="fas fa-shopping-basket"></i> <span>5</span></a>
                 </li>
                 <li>
-                    <a href="dashboard.html"><i class="fas fa-user"></i></a>
+                    <a href="{{ route('login') }}"><i class="fas fa-user"></i></a>
                 </li>
                 <li>
                     <a class="common_btn" href="#" data-bs-toggle="modal"
@@ -151,14 +151,13 @@
 </div>
 
 <div class="fp__reservation">
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Book a Table</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form class="fp__reservation_form">
