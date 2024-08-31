@@ -6,6 +6,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
     <title>FoodPark || Restaurant Template</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" href="{{ asset('frontead/images/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('frontead/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontead/css/bootstrap.min.css') }}">
@@ -31,14 +32,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-md-8">
-                    <ul class="fp__topbar_info d-flex flex-wrap">
+                    <ul class="flex-wrap fp__topbar_info d-flex">
                         <li><a href="mailto:example@gmail.com"><i class="fas fa-envelope"></i> Unifood@gmail.com</a>
                         </li>
                         <li><a href="callto:123456789"><i class="fas fa-phone-alt"></i> +96487452145214</a></li>
                     </ul>
                 </div>
                 <div class="col-xl-6 col-md-4 d-none d-md-block">
-                    <ul class="topbar_icon d-flex flex-wrap">
+                    <ul class="flex-wrap topbar_icon d-flex">
                         <li><a href="#"><i class="fab fa-facebook-f"></i></a> </li>
                         <li><a href="#"><i class="fab fa-twitter"></i></a> </li>
                         <li><a href="#"><i class="fab fa-linkedin-in"></i></a> </li>
@@ -114,14 +115,21 @@
 
     <!-- to toastr  js -->
     <script src="{{ asset('frontead/js/toastr.min.js') }}"></script>
-
     <script>
         @if ($errors->any())
             @foreach ($errors->all() as $error)
                 toastr.error("{{ $error }}")
             @endforeach
         @endif
+
+        // for ajax call
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     </script>
+    @stack('scripts')
 </body>
 
 </html>
