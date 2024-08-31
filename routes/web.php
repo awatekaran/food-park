@@ -23,8 +23,9 @@ Route::get('/',[FronteadController::class, 'index']);
 
 
 // auth admin login
-
-Route::get('admin/login', [AdminAuthController::class, 'index'])->name('admin.login');
+Route::group(['middleware'=>'guest'], function(){
+    Route::get('admin/login', [AdminAuthController::class, 'index'])->name('admin.login');
+});
 
 
 Route::group(['middleware'=>'auth'], function(){

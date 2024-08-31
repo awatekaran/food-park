@@ -1,8 +1,8 @@
 @extends('frontead.layouts.master')
 @section('content')
     <!--=============================
-                                                                                                                                            BREADCRUMB START
-                                                                                                                                        ==============================-->
+                                                                                                                                                BREADCRUMB START
+                                                                                                                                            ==============================-->
     <section class="fp__breadcrumb" style="background: url(images/counter_bg.jpg);">
         <div class="fp__breadcrumb_overlay">
             <div class="container">
@@ -17,13 +17,13 @@
         </div>
     </section>
     <!--=============================
-                                                                                                                                            BREADCRUMB END
-                                                                                                                                        ==============================-->
+                                                                                                                                                BREADCRUMB END
+                                                                                                                                            ==============================-->
 
 
     <!--=========================
-                                                                                                                                            DASHBOARD START
-                                                                                                                                        ==========================-->
+                                                                                                                                                DASHBOARD START
+                                                                                                                                            ==========================-->
     <section class="fp__dashboard mt_120 xs_mt_90 mb_100 xs_mb_70">
         <div class="container">
             <div class="fp__dashboard_area">
@@ -71,9 +71,14 @@
                                     data-bs-target="#v-pills-settings" type="button" role="tab"
                                     aria-controls="v-pills-settings" aria-selected="false"><span><i
                                             class="fas fa-user-lock"></i></span> Change Password </button>
-
-                                <button class="nav-link" type="button"><span> <i class="fas fa-sign-out-alt"></i>
-                                    </span> Logout</button>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button class="nav-link"
+                                        onclick="event.preventDefault();
+                                                                    this.closest('form').submit();"
+                                        type="button"><span> <i class="fas fa-sign-out-alt"></i>
+                                        </span> Logout</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -1229,8 +1234,8 @@
     </div>
     <!-- CART POPUT END -->
     <!--=========================
-                                                                                                                                            DASHBOARD END
-                                                                                                                                        ==========================-->
+                                                                                                                                                DASHBOARD END
+                                                                                                                                            ==========================-->
 @endsection
 @push('scripts')
     <script>
@@ -1247,10 +1252,9 @@
                     processData: false,
                     contentType: false,
                     success: function(response) {
-                        if(response.status ==='success')
-                    {
+                        if (response.status === 'success') {
                             window.location.reload();
-                    }
+                        }
                         //console.log(response);
                     },
                     error: function(error) {
