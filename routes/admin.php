@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\SliderController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix'=>'admin', 'as'=>'admin.'], function(){
@@ -13,5 +14,6 @@ Route::group(['prefix'=>'admin', 'as'=>'admin.'], function(){
     Route::put('update', [ProfileController::class, 'updateprofile'])->name('profile.update');
     Route::put('profile/password', [ProfileController::class, 'updatepassword'])->name('profile.password.update');
 
-
+    //SLIDER ROUTES
+    Route::resource('slider', SliderController::class);
 });

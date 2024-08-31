@@ -31,7 +31,6 @@ Route::group(['middleware'=>'guest'], function(){
 Route::group(['middleware'=>'auth'], function(){
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::put('update', [ProfileController::class, 'updateProfile'])->name('user.profile.update');
-
     Route::put('profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
     Route::post('profile/avatar', [ProfileController::class, 'updateAvatar'])->name('profile.avatar.updated');
 });
