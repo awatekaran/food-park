@@ -11,8 +11,8 @@
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('admin/assets/modules/summernote/summernote-bs4.css') }}">
     <!-- Template CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/components.css') }}">
     <!-- Start GA -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
     <link rel="stylesheet" href="{{ asset('admin/assets/css/toastr.min.css') }}">
@@ -68,7 +68,7 @@
     <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>
     <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
     <!--JS FOR UPLOAD -->
-    <script src="assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js"></script>
+    <script src="{{ asset('admin/assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js') }}"></script>
     <!-- slider for cdn-->
     <script src="//cdn.datatables.net/2.1.5/js/dataTables.min.js"></script>
     <script>

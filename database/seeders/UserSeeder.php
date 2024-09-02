@@ -20,7 +20,17 @@ class UserSeeder extends Seeder
             'email' =>'user@gmail.com',
             'password'=>Hash::make('password'),
             'role'=>'user'
-        ]
+        ],
     );
+
+    User::insert(
+        [
+            'name' =>'admin',
+            'email' =>'admin@gmail.com',
+            'password'=>Hash::make('password'),
+            'role'=>'user'
+        ],
+    );
+
     }
 }
