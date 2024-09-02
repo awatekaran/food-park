@@ -16,6 +16,9 @@
     <!-- Start GA -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
     <link rel="stylesheet" href="{{ asset('admin/assets/css/toastr.min.css') }}">
+
+    <!-- slider for css-->
+    <link rel="stylesheet" href="//cdn.datatables.net/2.1.5/css/dataTables.dataTables.min.css">
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -66,6 +69,8 @@
     <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
     <!--JS FOR UPLOAD -->
     <script src="assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js"></script>
+    <!-- slider for cdn-->
+    <script src="//cdn.datatables.net/2.1.5/js/dataTables.min.js"></script>
     <script>
         @if ($errors->any())
             @foreach ($errors->all() as $error)
