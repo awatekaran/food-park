@@ -43,8 +43,8 @@
                     <div class="form-class">
                         <label for="">Status</label>
                         <select name="status" class="form-control" id="">
-                            <option {{ $slider->status === 1 ? 'selected' : '' }} value="1">Active</option>
-                            <option {{ $slider->status === 0 ? 'selected' : '' }} value="0">Deactive</option>
+                            <option @selected($slider->status === 1) value="1">Active</option>
+                            <option @selected($slider->status === 0)value="0">Deactive</option>
                         </select>
                     </div>
                     <button class="btn btn-primary" value="submit">Update</button>
