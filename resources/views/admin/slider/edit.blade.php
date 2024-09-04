@@ -10,8 +10,9 @@
             </div>
 
             <div class="card-body">
-                <form action="{{ route('admin.slider.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.slider.update', $slider->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="form-group">
                         <div id="image-preview" class="image-preview">
                             <label for="image-upload" id="image-label">Choose File</label>
@@ -52,4 +53,15 @@
             </div>
         </div>
     </section>
+    @push('scripts')
+        <script>
+            $(document).ready(function() {
+                $('.image-preview').css({
+                    'background-image': 'url({{ asset($slider->image) }})',
+                    'background-size': 'cover',
+                    'background-position': 'center center'
+                });
+            });
+        </script>
+    @endpush
 @endsection
