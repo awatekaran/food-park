@@ -25,7 +25,7 @@ class SliderDataTable extends DataTable
             ->addColumn('action', function($query){
 
                 $edit = "<a href='".route('admin.slider.edit', $query->id)."' class='btn btn-primary'> <i class='far fa-edit'></i> <a/>";
-                $delete = "<a href='".route('admin.slider.destroy', $query->id)."' class='ml-2 btn btn-danger'> <i class='fas fa-trash-alt'></i> <a/>";
+                $delete = "<a href='".route('admin.slider.destroy', $query->id)."' class='ml-2 delete-item btn btn-danger'> <i class='fas fa-trash-alt'></i> <a/>";
                 return $edit.$delete;
             })
 

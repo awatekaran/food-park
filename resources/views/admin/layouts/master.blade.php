@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>General Dashboard &mdash; Stisla</title>
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('admin/assets/modules/bootstrap/css/bootstrap.min.css') }}">
@@ -63,6 +64,9 @@
 
     <!--to astr -->
     <script src="{{ asset('admin/assets/js/toastr.min.js') }}"></script>
+    <script src="//cdn.datatables.net/2.1.5/js/dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- JS Libraies -->
     <!-- Template JS File -->
     <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>
@@ -70,13 +74,15 @@
     <!--JS FOR UPLOAD -->
     <script src="{{ asset('admin/assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js') }}"></script>
     <!-- slider for cdn-->
-    <script src="//cdn.datatables.net/2.1.5/js/dataTables.min.js"></script>
     <script>
         @if ($errors->any())
             @foreach ($errors->all() as $error)
                 toastr.error("{{ $error }}")
             @endforeach
         @endif
+
+        // meta data for ajax
+        // for ajax call
     </script>
     <script>
         $.uploadPreview({
@@ -87,6 +93,52 @@
             label_selected: "Change File", // Default: Change File
             no_label: false, // Default: false
             success_callback: null // Default: null
+        });
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        // script for delete global
+        $(document).ready(function() {
+            $('body').on('click', '.delete-item', function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $url = $(this).attr('href');
+                        $.ajax({
+                            url: $url,
+                            method: 'DELETE',
+                            success: function(response) {
+                                if (response.status === 'success') {
+                                    toastr.success(response.message);
+                                    $('#slider-table').DataTable().draw();
+                                } else if (response.status === 'error') {
+                                    toastr.success(response.message);
+                                }
+                            },
+                            error: function(error) {
+                                console.log(error)
+                            }
+                        });
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                    }
+                });
+            });
         });
     </script>
     @stack('scripts')
